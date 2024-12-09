@@ -1,0 +1,124 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif
+}
+body{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100hv;
+    background-color: #ffbcd9;
+}
+.container{
+    margin: 100px auto;
+    width: 75%;
+
+}
+.bordered-image{
+    border: 5px solid #333;
+    padding: 0px;
+}
+heros{
+    max-width: 350px;
+    float: left;
+    border-radius: 10px;
+    border: 3px solid white;
+    margin-right: 20px;
+}
+legsup{
+    max-width: 350px;
+    float: left;
+    border-radius: 10px;
+    border: 3px solid white;
+    margin-right: 20px;
+}   
+cow face{
+    max-width: 350px;
+    float: left;
+    border-radius: 10px;
+    border: 3px solid white;
+    margin-right: 20px;
+}   
+child{
+    max-width: 350px;
+    float: left;
+    border-radius: 10px;
+    border: 3px solid white;
+    margin-right: 20px;
+}   
+twists{
+    max-width: 350px;
+    float: left;
+    border-radius: 10px;
+    border: 3px solid white;
+    margin-right: 20px;
+}   
+yogic{
+    max-width: 350px;
+    float: left;
+    border-radius: 10px;
+    border: 3px solid white;
+    margin-right: 20px;
+}   
+legsup{
+    max-width: 350px;
+    float: left;
+    border-radius: 10px;
+    border: 3px solid white;
+    margin-right: 20px;
+} 
+fish{
+    max-width: 350px;
+    float: left;
+    border-radius: 10px;
+    border: 3px solid white;
+    margin-right: 20px;
+}
+dry{
+    max-width: 350px;
+    float: left;
+    border-radius: 10px;
+    border: 3px solid white;
+    margin-right: 20px;
+}   
+leafy{
+    max-width: 350px;
+    float: left;
+    border-radius: 10px;
+    border: 3px solid white;
+    margin-right: 20px;
+}   
+dark{
+    max-width: 350px;
+    float: left;
+    border-radius: 10px;
+    border: 3px solid white;
+    margin-right: 20px;
+}   
+fruits{
+    max-width: 350px;
+    float: left;
+    border-radius: 10px;
+    border: 3px solid white;
+    margin-right: 20px;
+}   
+.text h2{
+    font-size: 30px;
+    padding: 5px;
+}
+.text p{
+    font-size: 18px;
+}
+.container h1{
+    font-size: 60px;
+    padding: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    color:darkred;
+}
+.text h3{
+    font-size: 40px;
+    padding: 5px;
+    color: firebrick;
+}
