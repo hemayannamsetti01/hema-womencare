@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Date Picker and Prediction</title>
+  <style>
+  button {
+      display: block;
+      margin: 10px auto;
+      padding: 10px 20px;
+      background-color: #ff0000;
+      color: #ffffff ;
+      font-size: 1em;
+      border: none;
+      cursor: pointer;
+    }
+    body {
+      text-align: center;
+      font-size: 1.8em;
+      background-image: url('5.gif');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    label, input, button {
+      display: block;
+      margin: 10px auto;
+      font-size: 1em;
+    }
+
+    #prediction {
+      font-size: 1.4em;
+    }
+  </style>
+  <script>
+    function predictDate() {
+      var selectedDate = new Date(document.getElementById("datepicker").value);
+      var numberOfDays = parseInt(document.getElementById("daysInput").value);
+      var predictedDate = new Date(selectedDate.getTime() + numberOfDays * 24 * 60 * 60 * 1000);
+
+      var predictedYear = predictedDate.getFullYear();
+      var predictedMonth = ("0" + (predictedDate.getMonth() + 1)).slice(-2);
+      var predictedDay = ("0" + predictedDate.getDate()).slice(-2);
+
+      document.getElementById("prediction").innerHTML = "Predicted Date: " + predictedYear + "-" + predictedMonth + "-" + predictedDay;
+
+      // Save the data to local storage
+      localStorage.setItem("selectedDate", document.getElementById("datepicker").value);
+      localStorage.setItem("numberOfDays", document.getElementById("daysInput").value);
+    }
+
+    function retrievePreviousData() {
+      // Retrieve data from local storage
+      var selectedDate = localStorage.getItem("selectedDate");
+      var numberOfDays = localStorage.getItem("numberOfDays");
+
+      if (selectedDate && numberOfDays) {
+        document.getElementById("datepicker").value = selectedDate;
+        document.getElementById("daysInput").value = numberOfDays;
+
+        predictDate(); // Call predictDate() to display the prediction immediately
+      }
+    }
+  </script>
+</head>
+<body onload="retrievePreviousData()">
+  <h1>Period Tracker</h1>
+  <label for="datepicker">Select a date:</label>
+  <input type="date" id="datepicker">
+  <br>
+  <label for="daysInput">Enter number of days:</label>
+  <input type="number" id="daysInput">
+  <br>
+  <button onclick="predictDate()">Predict</button>
+  <br>
+  <p id="prediction"></p>
+</body>
+</html>
