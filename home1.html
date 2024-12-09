@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home Page</title>
+    <style>
+        h1 {
+            text-align: center;
+        }
+        
+        .feature-container {
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            grid-gap: 20px;
+            justify-items: right;
+            margin: 20px;
+        }
+        
+        .feature-block {
+            width: 500px;
+            height: 200px;
+            background-color: #ffffff;
+            border: 1px solid #ffffff;
+            text-align: middle;
+            padding: 35px;
+        }
+        
+        .feature-block img {
+            max-width: 100%;
+            max-height: 80%;
+	    object-fit: cover;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to Girl Flu!</h1>
+    <div class="feature-container">
+        <div class="feature-block">
+	<a href='period tracker.html'>
+            <img src="1.gif" alt="Feature 1">
+            <h2>Period Tracker</h2>
+	</a>
+        </div>
+        
+        <div class="feature-block">
+	<a href='shopping webiste.html'>
+            <img src="2.gif" alt="Feature 2">
+            <h2>Sanitary Shopping</h2>
+        </a>
+        </div>
+        
+        <div class="feature-block">
+	<a href='zoom.html'>
+            <img src="3.gif" alt="Feature 3">
+            <h2>Gynaecologist Appointment</h2>
+	</a>
+        </div>
+        
+        <div class="feature-block">
+	<a href='index.html'>
+            <img src="4.gif" alt="Feature 4">
+            <h2>Yoga & Diet</h2>
+	</a>
+        </div>
+    </div>
+</body>
+</html>
