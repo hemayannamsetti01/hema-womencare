@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Girl Flu</title>
+    <link rel="stylesheet" href="style.css">
+    <!---we had linked our CSS file----->
+    <script>
+        function validateForm() {
+            var emailInput = document.getElementById('email');
+            var passwordInput = document.getElementById('password');
+
+            // Perform validation checks
+            if (emailInput.value === "") {
+                alert("Please enter your email.");
+                return false;
+            }
+
+            // Email format validation using regular expression
+            var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(emailInput.value)) {
+                alert("Please enter a valid email address.");
+                return false;
+            }
+
+            if (passwordInput.value === "") {
+                alert("Please enter a password.");
+                return false;
+            }
+
+            // Password complexity validation (e.g., minimum length)
+            if (passwordInput.value.length > 6) {
+                alert("Password should be at least 6 characters long.");
+                return false;
+            }
+
+            // Form passed validation
+            alert("Registration successful!");
+            return true;
+        }
+    </script>
+	
+
+</head>
+<body>
+    <div class="full-page">
+        <!-- Rest of the HTML code -->
+                <div class="navbar">
+            <div>
+                <a href='website.html'>Girl Flu</a>
+		<!---ikkada logo---->
+            </div>
+            <nav>
+                <ul id='MenuItems'>
+                    <li><a href='About us.html'>About Us</a></li>
+                    <li><a href='Contact us.html'>Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div id='login-form'class='login-page'>
+            <div class="form-box">
+                <div class='button-box'>
+                    <div id='btn'></div>
+                    <button type='button' onclick='login()'class='toggle-btn'>Log In</a></button>
+                    <button type='button'onclick='register()'class='toggle-btn'>Register</button>
+                </div>
+                <form id='login' class='input-group-login'>
+                    <input type='text'class='input-field'placeholder='Email Id' required >
+		    <input type='password'class='input-field'placeholder='Enter Password' required>
+		    <br><br><br>
+
+		    <button type='submit'class='submit-btn'><a href="home1.html">Log in</a></button>
+		 </form>
+
+        <form id="register" class="input-group-register" onsubmit="return validateForm()">
+            <input type="text" class="input-field" placeholder="Name" required>
+            <input type="email" class="input-field" id="email" placeholder="Email Id" required>
+            <input type="password" class="input-field" id="password" placeholder="Enter Password" required><br><br>
+            Note: Enter a 6 letter password<br><br>
+            <button type="submit" class="submit-btn">Register</button>
+        </form>
+	</div>
+	</div>
+	</div>
+        <!-- Rest of the HTML code -->
+	 <script>
+        var x=document.getElementById('login');
+		var y=document.getElementById('register');
+		var z=document.getElementById('btn');
+		function register()
+		{
+			x.style.left='-400px';
+			y.style.left='50px';
+			z.style.left='110px';
+		}
+		function login()
+		{
+			x.style.left='50px';
+			y.style.left='450px';
+			z.style.left='0px';
+		}
+	</script>
+	<script>
+        var modal = document.getElementById('login-form');
+        window.onclick = function(event) 
+        {
+            if (event.target == modal) 
+            {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+
+    <!-- Rest of the JavaScript code -->
+	<h1>Registration Form</h1>
+  
+  <form onsubmit="return validateForm()">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required><br>
+    
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required><br>
+    
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required><br>
+    
+    <input type="submit" value="Register">
+  </form>
+</body>
+</html>
