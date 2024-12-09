@@ -1,0 +1,51 @@
+from flask import Flask, render_template, request, jsonify
+import datetime
+import smtplib
+
+app = Flask(__name__)
+
+# Set the email server credentials
+SMTP_SERVER = "smtp.example.com"
+SMTP_PORT = 587
+EMAIL_ADDRESS = "your_email@example.com"
+EMAIL_PASSWORD = "your_password"
+
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+@app.route('/track', methods=['POST'])
+def track_menstrual_cycle():
+    data = request.get_json()
+    cycle_length = int(data['cycleLength'])
+    period_length = int(data['periodLength'])
+    input_date = datetime.datetime.strptime(data['inputDate'], '%Y-%m-%d').date()
+
+    today = datetime.date.today()
+    last_period = input_date - datetime.timedelta(days=cycle_length)
+    next_period = last_period + datetime.timedelta(days=cycle_length)
+
+    period_start = next_period - datetime.timedelta(days=period_length)
+    period_end = next_period - datetime.timedelta(days=1)
+
+    if period_start <= input_date <= period_end:
+        message = "You are on your period on the specified date."
+    else:
+        days_until_period = (next_period - input_date).days
+        if days_until_period == 1:
+            send_email("Period Reminder", "Your period is expected tomorrow!")
+            message = "Your period is expected tomorrow! Email reminder sent."
+        elif days_until_period <= 7:
+            send_email("Period Reminder", f"Your period is expected in {days_until_period} days.")
+            message = f"Your period is expected in {days_until_period} days. Email reminder sent."
+        else:
+            message = "No period reminder set."
+
+    return jsonify({'message': message})
+
+def send_email(subject, body):
+    try:
+        # Connect to the email server
+        server = smtplib.SMTP(SMTP_SERVER, SMTP_PORT)
+        server.starttls()
+        server.login(EMAIL_ADDRESS,
